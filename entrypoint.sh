@@ -32,12 +32,13 @@ echo -e "\tPRERELEASE_SUFFIX: ${suffix}"
 echo -e "\tVERBOSE: ${verbose}"
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)
-
+echo "current_branch = $current_branch"
 pre_release="true"
 IFS=',' read -ra branch <<< "$release_branches"
 for b in "${branch[@]}"; do
     echo "Is $b a match for ${current_branch}"
     if [[ "${current_branch}" =~ $b ]]
+        echo $b
     then
         pre_release="false"
     fi
