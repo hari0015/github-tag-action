@@ -38,8 +38,9 @@ IFS=',' read -ra branch <<< "$release_branches"
 for b in "${branch[@]}"; do
     echo "Is $b a match for ${current_branch}"
     if [[ "${current_branch}" =~ $b ]]
-        echo $b
+        
     then
+    	echo $b
         pre_release="false"
     fi
 done
