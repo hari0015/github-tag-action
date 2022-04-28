@@ -44,6 +44,13 @@ for b in "${branch[@]}"; do
 done
 echo "pre_release = $pre_release"
 
+if [ ${github.event.pull_request.base.ref}  = main ]
+        then
+                pre_release="false"
+		echo "pre_release = $pre_release"
+        else
+                echo "User not found"
+fi
 # fetch tags
 git fetch --tags
     
